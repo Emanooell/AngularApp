@@ -1,24 +1,36 @@
 <div class="container">
   <h2 class="title">Login</h2>
   <div class="containerForm">
-    <form (submit)="onSubmit($event)" class="form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
       <div class="inputContainer">
         <input
           class="input"
+          formControlName="email"
           placeholder="Insira seu e-mail"
           type="email"
-          name="email"
           required
         />
       </div>
       <div class="inputContainer">
-        <input
-          class="input"
-          placeholder="Insira sua senha"
-          type="password"
-          name="password"
-          required
-        />
+        <div class="passwordInputWrapper">
+          <input
+            class="input"
+            [type]="passwordFieldType"
+            formControlName="password"
+            placeholder="Insira sua senha"
+            required
+          />
+          <button
+            type="button"
+            class="togglePassword"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ passwordFieldType === "password" ? "Mostrar" : "Ocultar" }}
+          </button>
+        </div>
+        <div *ngIf="errorMessage" class="containerError">
+          <p class="error">{{ errorMessage }}</p>
+        </div>
       </div>
       <button type="submit" class="button">Entrar</button>
     </form>

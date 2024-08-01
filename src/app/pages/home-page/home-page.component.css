@@ -14,8 +14,6 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-
-
   display: flex;
 }
 
@@ -24,19 +22,22 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  padding: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
+  width: 30%; /* Mesma largura */
+  height: 350px; /* Mesma altura */
   border: 3px solid green;
   border-radius: 30px;
+  background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {
   font-size: 32px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   color: #333;
 }
 
@@ -44,6 +45,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%; /* Garante que os botões ocupem a largura total */
 }
 
 .button {
@@ -62,13 +64,21 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    width: 60%; /* Ajusta para responsividade */
+  }
+
   .button {
-    padding: 12px 40px;
+    padding: 12px 40px; /* Ajusta o tamanho do botão em telas menores */
   }
 }
 
 @media screen and (max-width: 480px) {
+  .container {
+    width: 80%; /* Ajusta para responsividade em telas muito pequenas */
+  }
+
   .button {
-    padding: 12px 30px;
+    padding: 12px 30px; /* Ajusta o tamanho do botão em telas menores */
   }
 }
