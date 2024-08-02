@@ -14,7 +14,7 @@ export class LoginPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   loginForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
+  passwordFieldType: string = 'password';
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -22,7 +22,7 @@ export class LoginPageComponent {
       password: [''],
     });
 
-    // Subscrição para limpar a mensagem de erro ao digitar
+
     this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
     });
@@ -40,17 +40,17 @@ export class LoginPageComponent {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !emailPattern.test(email) || !password) {
-      this.errorMessage = 'Dados inválidos.'; // Define uma mensagem de erro genérica
+      this.errorMessage = 'Dados inválidos.';
       return false;
     }
 
-    this.errorMessage = null; // Limpa a mensagem de erro se tudo estiver válido
+    this.errorMessage = null;
     return true;
   }
 
   onSubmit() {
     if (!this.validateForm()) {
-      return; // Mostra a mensagem de erro, se houver
+      return;
     }
 
     const credentials = this.loginForm.value;
@@ -63,10 +63,9 @@ export class LoginPageComponent {
       );
       if (user) {
         console.log('Login efetuado com sucesso');
-        this.errorMessage = null; // Limpa a mensagem de erro se o login for bem-sucedido
-        // Aqui você pode adicionar a lógica para redirecionar o usuário ou armazenar o estado de login
+        this.errorMessage = null;
       } else {
-        this.errorMessage = 'Dados inválidos.'; // Define a mensagem de erro para credenciais inválidas
+        this.errorMessage = 'Dados inválidos.';
         console.log('Credenciais inválidas');
       }
       this.loginForm.reset();

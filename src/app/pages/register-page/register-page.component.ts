@@ -14,7 +14,7 @@ export class RegisterPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   registerForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
+  passwordFieldType: string = 'password';
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
@@ -23,7 +23,6 @@ export class RegisterPageComponent {
     });
   }
 
-  // Removemos o método clearError porque não o utilizaremos mais
 
   togglePasswordVisibility() {
     this.passwordFieldType =
@@ -32,7 +31,7 @@ export class RegisterPageComponent {
 
   onSubmit() {
     if (!this.validateForm()) {
-      return; // Mostra a mensagem de erro, se houver
+      return;
     }
 
     const user = this.registerForm.value;

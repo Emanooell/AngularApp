@@ -1,85 +1,87 @@
-html,
 body {
   height: 100%;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-  margin: 0;
   width: 100%;
   height: 100vh;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  display: flex;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  height: 350px;
-  border: 3px solid green;
-  border-radius: 30px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.balance-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  align-items: start;
+  width: 40%;
+  max-width: 800px;
+  height: auto;
+  border: 2px solid #005b96;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 91, 150, 0.2);
+  padding: 40px;
+  text-align: left;
 }
 
-.title {
-  font-size: 32px;
-  padding-bottom: 15px;
-  color: #333;
+.balance-title {
+  font-size: 28px;
+  color: #005b96;
+  margin-bottom: 20px;
 }
 
-.containerButtons {
+.balance-buttons {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row;
+  gap: 20px;
   width: 100%;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.button {
-  background-color: #4caf50;
-  padding: 12px 60px;
-  text-align: center;
-  color: #fff;
+.balance-button {
+  background-color: #005b96;
+  color: #ffffff;
+  padding: 14px 50px;
   font-size: 16px;
   border: none;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-.button:hover {
-  background-color: #45a049;
+.balance-button:hover {
+  background-color: #003f63;
+  transform: scale(1.05);
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    width: 60%;
+  .balance-container {
+    width: 90%;
+    padding: 30px;
   }
 
-  .button {
+  .balance-button {
     padding: 12px 40px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .container {
-    width: 80%;
+  .balance-container {
+    width: 95%;
+    padding: 20px;
   }
 
-  .button {
-    padding: 12px 30px;
+  .balance-button {
+    padding: 10px 30px;
+    font-size: 14px;
   }
 }
