@@ -15,7 +15,7 @@ export class RegisterPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   registerForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password';
+  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
 
   constructor(
     private http: HttpClient,
@@ -40,7 +40,7 @@ export class RegisterPageComponent {
 
   onSubmit() {
     if (!this.validateForm()) {
-      return;
+      return; // Mostra a mensagem de erro, se houver
     }
 
     const newUser = this.registerForm.value;

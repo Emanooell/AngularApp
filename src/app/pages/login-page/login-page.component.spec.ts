@@ -8,7 +8,7 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, LoginPageComponent], 
+      imports: [HttpClientModule, LoginPageComponent], // Adicionar HttpClientModule aos imports
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginPageComponent);
