@@ -1,19 +1,14 @@
 {
   "users": [
     {
-      "id": "d500",
-      "email": "emailTu@gmail.com",
-      "password": "emaniel123"
+      "id": "3656",
+      "email": "emailteste@gmail.com",
+      "password": "teste1"
     },
     {
-      "id": "fd01",
-      "email": "emailTu@gmail.com",
-      "password": "adadada"
-    },
-    {
-      "id": "6dee",
-      "email": "emailTu@gmail.coma",
-      "password": "adadada"
+      "id": "b686",
+      "email": "emailteste2@gmail.com",
+      "password": "senhateste3"
     }
   ],
   "posts": [

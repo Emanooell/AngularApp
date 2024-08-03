@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Importe o Router
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // Certifique-se de que o caminho está correto
 
 @Component({
   selector: 'app-register-page',
@@ -15,19 +16,19 @@ export class RegisterPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   registerForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
+  passwordFieldType: string = 'password';
 
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private router: Router // Injete o Router aqui
+    private router: Router,
+    private authService: AuthService // Injete o AuthService
   ) {
     this.registerForm = this.formBuilder.group({
       email: [''],
       password: [''],
     });
 
-    // Subscrição para limpar a mensagem de erro ao digitar
     this.registerForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
     });
@@ -40,16 +41,16 @@ export class RegisterPageComponent {
 
   onSubmit() {
     if (!this.validateForm()) {
-      return; // Mostra a mensagem de erro, se houver
+      return;
     }
 
     const newUser = this.registerForm.value;
 
     // Verifica se o email já existe
-    this.http.get<any[]>      (this.apiUrl).subscribe((users) => {
+    this.http.get<any[]>(this.apiUrl).subscribe((users) => {
       const existingUser = users.find((user) => user.email === newUser.email);
       if (existingUser) {
-        this.errorMessage = 'O email já está cadastrado.'; // Exibe mensagem de erro
+        this.errorMessage = 'O email já está cadastrado.';
         return;
       }
 
@@ -59,6 +60,7 @@ export class RegisterPageComponent {
           console.log('Usuário cadastrado', response);
           this.errorMessage = null;
           this.registerForm.reset();
+          this.authService.login(); // Chame o método login do AuthService para autenticar o usuário
           this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
         },
         error: (error) => {

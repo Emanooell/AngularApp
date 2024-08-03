@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router'; // Importação do Router
+import { AuthService } from '../../services/auth.service'; // Certifique-se de que o caminho está correto
 
 @Component({
   selector: 'app-login-page',
@@ -20,7 +21,8 @@ export class LoginPageComponent {
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private router: Router // Injete o Router aqui
+    private router: Router, // Injete o Router aqui
+    private authService: AuthService // Injete o AuthService
   ) {
     this.loginForm = this.formBuilder.group({
       email: [''],
@@ -70,10 +72,10 @@ export class LoginPageComponent {
         console.log('Login efetuado com sucesso');
         this.errorMessage = null; // Limpa a mensagem de erro se o login for bem-sucedido
         this.loginForm.reset();
+        this.authService.login(); // Autentica o usuário no AuthService
         this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
       } else {
         this.errorMessage = 'Dados inválidos.';
-       
       }
     });
   }
