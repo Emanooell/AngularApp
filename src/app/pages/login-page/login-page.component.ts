@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // Importação do Router
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,11 @@ export class LoginPageComponent {
   errorMessage: string | null = null;
   passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private router: Router // Injete o Router aqui
+  ) {
     this.loginForm = this.formBuilder.group({
       email: [''],
       password: [''],
@@ -64,12 +69,12 @@ export class LoginPageComponent {
       if (user) {
         console.log('Login efetuado com sucesso');
         this.errorMessage = null; // Limpa a mensagem de erro se o login for bem-sucedido
-        // Aqui você pode adicionar a lógica para redirecionar o usuário ou armazenar o estado de login
+        this.loginForm.reset();
+        this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
       } else {
-        this.errorMessage = 'Dados inválidos.'; // Define a mensagem de erro para credenciais inválidas
-        console.log('Credenciais inválidas');
+        this.errorMessage = 'Dados inválidos.';
+       
       }
-      this.loginForm.reset();
     });
   }
 }

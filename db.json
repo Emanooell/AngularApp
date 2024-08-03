@@ -1,17 +1,19 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe"
+      "id": "d500",
+      "email": "emailTu@gmail.com",
+      "password": "emaniel123"
     },
     {
-      "id": "2",
-      "name": "Jane Doe"
+      "id": "fd01",
+      "email": "emailTu@gmail.com",
+      "password": "adadada"
     },
     {
-      "id": "1d37",
-      "email": "emailteste@gmail.com",
-      "password": "emanoel123"
+      "id": "6dee",
+      "email": "emailTu@gmail.coma",
+      "password": "adadada"
     }
   ],
   "posts": [

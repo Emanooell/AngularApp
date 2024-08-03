@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // Importe o Router
 
 @Component({
   selector: 'app-register-page',
@@ -16,14 +17,21 @@ export class RegisterPageComponent {
   errorMessage: string | null = null;
   passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private router: Router // Injete o Router aqui
+  ) {
     this.registerForm = this.formBuilder.group({
       email: [''],
       password: [''],
     });
-  }
 
-  // Removemos o método clearError porque não o utilizaremos mais
+    // Subscrição para limpar a mensagem de erro ao digitar
+    this.registerForm.valueChanges.subscribe(() => {
+      this.errorMessage = null;
+    });
+  }
 
   togglePasswordVisibility() {
     this.passwordFieldType =
@@ -35,18 +43,29 @@ export class RegisterPageComponent {
       return; // Mostra a mensagem de erro, se houver
     }
 
-    const user = this.registerForm.value;
+    const newUser = this.registerForm.value;
 
-    this.http.post(this.apiUrl, user).subscribe({
-      next: (response) => {
-        console.log('Usuário cadastrado', response);
-        this.errorMessage = null;
-        this.registerForm.reset();
-      },
-      error: (error) => {
-        console.error('Erro ao cadastrar usuário', error);
-        this.errorMessage = 'Ocorreu um erro ao cadastrar o usuário.';
-      },
+    // Verifica se o email já existe
+    this.http.get<any[]>      (this.apiUrl).subscribe((users) => {
+      const existingUser = users.find((user) => user.email === newUser.email);
+      if (existingUser) {
+        this.errorMessage = 'O email já está cadastrado.'; // Exibe mensagem de erro
+        return;
+      }
+
+      // Caso o email não exista, cadastra o usuário
+      this.http.post(this.apiUrl, newUser).subscribe({
+        next: (response) => {
+          console.log('Usuário cadastrado', response);
+          this.errorMessage = null;
+          this.registerForm.reset();
+          this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
+        },
+        error: (error) => {
+          console.error('Erro ao cadastrar usuário', error);
+          this.errorMessage = 'Erro ao cadastrar o usuário.';
+        },
+      });
     });
   }
 
