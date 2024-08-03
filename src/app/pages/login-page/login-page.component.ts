@@ -15,7 +15,7 @@ export class LoginPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   loginForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
+  passwordFieldType: string = 'password';
 
   constructor(
     private http: HttpClient,
@@ -27,7 +27,7 @@ export class LoginPageComponent {
       password: [''],
     });
 
-    // Subscrição para limpar a mensagem de erro ao digitar
+
     this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
     });
@@ -45,17 +45,17 @@ export class LoginPageComponent {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !emailPattern.test(email) || !password) {
-      this.errorMessage = 'Dados inválidos.'; // Define uma mensagem de erro genérica
+      this.errorMessage = 'Dados inválidos.';
       return false;
     }
 
-    this.errorMessage = null; // Limpa a mensagem de erro se tudo estiver válido
+    this.errorMessage = null;
     return true;
   }
 
   onSubmit() {
     if (!this.validateForm()) {
-      return; // Mostra a mensagem de erro, se houver
+      return;
     }
 
     const credentials = this.loginForm.value;
@@ -73,7 +73,7 @@ export class LoginPageComponent {
         this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
       } else {
         this.errorMessage = 'Dados inválidos.';
-       
+
       }
     });
   }
