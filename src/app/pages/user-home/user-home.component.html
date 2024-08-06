@@ -1,3 +1,45 @@
 <main>
-  <h4>testando a tela inicial</h4>
+  <h2>Adicionar Livro</h2>
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="containerInput">
+      <label for="title">Título:</label>
+      <input class="input" id="title" formControlName="title" required />
+      <div *ngIf="errorMessage['title']" class="containerError">
+        <p class="error">{{ errorMessage["title"] }}</p>
+      </div>
+    </div>
+    <div class="containerInput">
+      <label for="author">Autor:</label>
+      <input class="input" id="author" formControlName="author" required />
+      <div *ngIf="errorMessage['author']" class="containerError">
+        <p class="error">{{ errorMessage["author"] }}</p>
+      </div>
+    </div>
+    <div class="containerInput">
+      <label for="year">Ano:</label>
+      <input
+        class="input"
+        id="year"
+        type="number"
+        formControlName="year"
+        required
+      />
+      <div *ngIf="errorMessage['year']" class="containerError">
+        <p class="error">{{ errorMessage["year"] }}</p>
+      </div>
+    </div>
+    <button class="button" type="submit">Adicionar Livro</button>
+  </form>
+
+  <h3>Lista de Livros</h3>
+  <ul>
+    <li *ngFor="let book of books; let i = index">
+      {{ book.title }} por {{ book.author }} ({{ book.year }})
+
+        <button (click)="deleteBook(book.id, i)">
+          <img src="../../../assets/trash.svg" alt="Ícone de lixeira">
+        </button>
+
+    </li>
+  </ul>
 </main>
