@@ -76,7 +76,7 @@ export class LoginPageComponent {
         this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
       } else {
         this.errorMessage = 'Dados inválidos.';
-      }
+      }  
     });
   }
 }
