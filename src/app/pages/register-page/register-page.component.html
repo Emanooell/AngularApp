@@ -1,20 +1,20 @@
-<div class="balance-register-container">
-  <h2 class="balance-title">Cadastro</h2>
-  <div class="balance-form-container">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="balance-form">
-      <div class="balance-input-container">
+<div class="container">
+  <h2 class="title">Cadastro</h2>
+  <div class="containerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="inputContainer">
         <input
-          class="balance-input"
+          class="input"
           formControlName="email"
           placeholder="Insira seu e-mail"
           type="email"
           required
         />
       </div>
-      <div class="balance-input-container">
-        <div class="password-input-wrapper">
+      <div class="inputContainer">
+        <div class="passwordInputWrapper">
           <input
-            class="balance-input"
+            class="input"
             [type]="passwordFieldType"
             formControlName="password"
             placeholder="Insira sua senha"
@@ -22,17 +22,17 @@
           />
           <button
             type="button"
-            class="toggle-password"
+            class="togglePassword"
             (click)="togglePasswordVisibility()"
           >
             {{ passwordFieldType === "password" ? "Mostrar" : "Ocultar" }}
           </button>
         </div>
-        <div *ngIf="errorMessage" class="balance-error-container">
-          <p class="balance-error">{{ errorMessage }}</p>
+        <div *ngIf="errorMessage" class="containerError">
+          <p class="error">{{ errorMessage }}</p>
         </div>
       </div>
-      <button type="submit" class="balance-button">Cadastrar</button>
+      <button type="submit" class="button">Cadastrar</button>
     </form>
   </div>
 </div>

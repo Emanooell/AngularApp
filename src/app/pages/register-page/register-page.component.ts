@@ -45,7 +45,6 @@ export class RegisterPageComponent {
 
     const newUser = this.registerForm.value;
 
-
     this.http.get<any[]>(this.apiUrl).subscribe((users) => {
       const existingUser = users.find((user) => user.email === newUser.email);
       if (existingUser) {
@@ -53,13 +52,12 @@ export class RegisterPageComponent {
         return;
       }
 
-
       this.http.post(this.apiUrl, newUser).subscribe({
         next: (response) => {
           console.log('Usuário cadastrado', response);
           this.errorMessage = null;
           this.registerForm.reset();
-          this.authService.login(); 
+          this.authService.login();
           this.router.navigate(['/homeUser']);
         },
         error: (error) => {

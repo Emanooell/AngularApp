@@ -1,179 +1,21 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe"
-    },
-    {
-      "id": "2",
-      "name": "Jane Doe"
-    },
-    {
-      "id": "1d37",
+      "id": "3656",
       "email": "emailteste@gmail.com",
-      "password": "emanoel123"
+      "password": "teste1"
+    },
+    {
+      "id": "b686",
+      "email": "emailteste2@gmail.com",
+      "password": "senhateste3"
     }
   ],
-  "healthRecords": [
+  "posts": [
     {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
-    },
-    {
-      "id": "8507",
-      "exercise": "academia",
-      "duration": 20,
-      "food": "10",
-      "hydration": 50,
-      "sleep": 50
+      "id": "1",
+      "title": "Hello World",
+      "content": "This is a post."
     }
   ]
 }
