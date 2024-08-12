@@ -11,13 +11,13 @@ body {
 main {
   width: 100%;
   height: 100vh;
+  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.balance-login-container {
+.balance-health-container {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -25,21 +25,23 @@ main {
   align-items: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Corrige a centralização */
+  transform: translate(-50%, -50%);
   width: 70%;
+
   max-width: 600px;
+  max-height: 90vh;
   border: 2px solid #005b96;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 8px 16px rgba(0, 91, 150, 0.2);
-  padding: 40px;
+  padding: 30px;
   text-align: center;
 }
 
 .balance-title {
   font-size: 28px;
   color: #005b96;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .balance-form-container {
@@ -57,12 +59,6 @@ main {
 
 .balance-input-container {
   position: relative;
-}
-
-.password-input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .balance-error-container {
@@ -87,18 +83,6 @@ main {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
-  padding-right: 60px; /* Espaço para o botão de senha */
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: #007bff;
-  outline: none;
 }
 
 .balance-button {
@@ -118,10 +102,40 @@ main {
   transform: scale(1.05);
 }
 
-@media screen and (max-width: 768px) {
-  .balance-login-container {
-    width: 60%;
+.balance-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-height: 15vh;
+  overflow-y: auto;
+}
 
+.balance-list-item {
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.balance-delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.balance-delete-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .balance-health-container {
+    width: 80%;
   }
 
   .balance-input {
@@ -130,12 +144,26 @@ main {
 }
 
 @media screen and (max-width: 480px) {
-  .balance-login-container {
-    width: 70%;
-
+  .balance-health-container {
+    width: 75%;
+    height: auto;
+    padding: 0 20px;
   }
-
+  .balance-title {
+    font-size: 25px;
+  }
   .balance-input {
     width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .balance-health-container {
+  }
+  .balance-title {
+    margin-bottom: 10px;
+  }
+  .balance-input {
+    margin-bottom: 0px;
+    padding: 10px 16px;
   }
 }

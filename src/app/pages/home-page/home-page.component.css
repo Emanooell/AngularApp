@@ -1,7 +1,7 @@
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f0f4f8;
   display: flex;
   justify-content: center;
@@ -33,6 +33,7 @@ main {
 }
 
 .balance-title {
+  text-align: center;
   font-size: 28px;
   color: #005b96;
   margin-bottom: 20px;
@@ -65,7 +66,7 @@ main {
 
 @media screen and (max-width: 768px) {
   .balance-container {
-    width: 90%;
+    width: 80%;
     padding: 30px;
   }
 
@@ -76,7 +77,7 @@ main {
 
 @media screen and (max-width: 480px) {
   .balance-container {
-    width: 95%;
+    width: 80%;
     padding: 20px;
   }
 

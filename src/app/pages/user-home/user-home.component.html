@@ -1,0 +1,78 @@
+<div class="balance-health-container">
+  <h2 class="balance-title">Adicionar Registro Diário de Saúde</h2>
+  <div class="balance-form-container">
+    <form [formGroup]="healthForm" (ngSubmit)="onSubmit()" class="balance-form">
+      <div class="balance-input-container">
+        <input
+          class="balance-input"
+          formControlName="exercise"
+          placeholder="Tipo de Exercício"
+          type="text"
+          required
+        />
+        <div *ngIf="errorMessages['exercise']" class="balance-error-container">
+          <p class="balance-error">{{ errorMessages['exercise'] }}</p>
+        </div>
+      </div>
+      <div class="balance-input-container">
+        <input
+          class="balance-input"
+          formControlName="duration"
+          placeholder="Duração do Exercício (minutos)"
+          type="number"
+          required
+        />
+        <div *ngIf="errorMessages['duration']" class="balance-error-container">
+          <p class="balance-error">{{ errorMessages['duration'] }}</p>
+        </div>
+      </div>
+      <div class="balance-input-container">
+        <input
+          class="balance-input"
+          formControlName="food"
+          placeholder="Alimentos Consumidos"
+          type="text"
+          required
+        />
+        <div *ngIf="errorMessages['food']" class="balance-error-container">
+          <p class="balance-error">{{ errorMessages['food'] }}</p>
+        </div>
+      </div>
+      <div class="balance-input-container">
+        <input
+          class="balance-input"
+          formControlName="hydration"
+          placeholder="Hidratação (copos de água)"
+          type="number"
+          required
+        />
+        <div *ngIf="errorMessages['hydration']" class="balance-error-container">
+          <p class="balance-error">{{ errorMessages['hydration'] }}</p>
+        </div>
+      </div>
+      <div class="balance-input-container">
+        <input
+          class="balance-input"
+          formControlName="sleep"
+          placeholder="Horas de Sono"
+          type="number"
+          required
+        />
+        <div *ngIf="errorMessages['sleep']" class="balance-error-container">
+          <p class="balance-error">{{ errorMessages['sleep'] }}</p>
+        </div>
+      </div>
+
+      <button class="balance-button" type="submit">Adicionar Registro</button>
+    </form>
+  </div>
+  <h3 class="balance-title">Lista de Registros de Saúde</h3>
+  <ul class="balance-list">
+    <li *ngFor="let health of healthRecords; let i = index" class="balance-list-item">
+      Exercício: {{ health.exercise }} por {{ health.duration }} min, Alimentos: {{ health.food }}, Hidratação: {{ health.hydration }} copos, Sono: {{ health.sleep }} horas
+      <button class="balance-delete-button" (click)="deleteHealthRecord(health.id, i)">
+        <img src="../../../assets/trash.svg" alt="Ícone de lixeira" class="balance-delete-icon">
+      </button>
+    </li>
+  </ul>
+</div>

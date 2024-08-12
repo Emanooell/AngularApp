@@ -14,7 +14,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .balance-login-container {
@@ -118,10 +117,15 @@ main {
   transform: scale(1.05);
 }
 
+.balance-message {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .balance-login-container {
-    width: 60%;
-
+    width: 80%;
   }
 
   .balance-input {
@@ -131,8 +135,7 @@ main {
 
 @media screen and (max-width: 480px) {
   .balance-login-container {
-    width: 70%;
-
+    width: 95%;
   }
 
   .balance-input {

@@ -14,11 +14,166 @@
       "password": "emanoel123"
     }
   ],
-  "posts": [
+  "healthRecords": [
     {
-      "id": "1",
-      "title": "Hello World",
-      "content": "This is a post."
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
+    },
+    {
+      "id": "8507",
+      "exercise": "academia",
+      "duration": 20,
+      "food": "10",
+      "hydration": 50,
+      "sleep": 50
     }
   ]
 }

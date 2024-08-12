@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -16,12 +18,16 @@ export class LoginPageComponent {
   errorMessage: string | null = null;
   passwordFieldType: string = 'password';
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.loginForm = this.formBuilder.group({
       email: [''],
       password: [''],
     });
-
 
     this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
@@ -62,13 +68,13 @@ export class LoginPageComponent {
           user.password === credentials.password
       );
       if (user) {
-        console.log('Login efetuado com sucesso');
         this.errorMessage = null;
+        this.loginForm.reset();
+        this.authService.login();
+        this.router.navigate(['/homeUser']);
       } else {
         this.errorMessage = 'Dados inválidos.';
-        console.log('Credenciais inválidas');
       }
-      this.loginForm.reset();
     });
   }
 }

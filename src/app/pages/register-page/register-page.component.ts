@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-register-page',
   standalone: true,
@@ -16,13 +17,21 @@ export class RegisterPageComponent {
   errorMessage: string | null = null;
   passwordFieldType: string = 'password';
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.registerForm = this.formBuilder.group({
       email: [''],
       password: [''],
     });
-  }
 
+    this.registerForm.valueChanges.subscribe(() => {
+      this.errorMessage = null;
+    });
+  }
 
   togglePasswordVisibility() {
     this.passwordFieldType =
@@ -34,18 +43,30 @@ export class RegisterPageComponent {
       return;
     }
 
-    const user = this.registerForm.value;
+    const newUser = this.registerForm.value;
 
-    this.http.post(this.apiUrl, user).subscribe({
-      next: (response) => {
-        console.log('Usuário cadastrado', response);
-        this.errorMessage = null;
-        this.registerForm.reset();
-      },
-      error: (error) => {
-        console.error('Erro ao cadastrar usuário', error);
-        this.errorMessage = 'Ocorreu um erro ao cadastrar o usuário.';
-      },
+
+    this.http.get<any[]>(this.apiUrl).subscribe((users) => {
+      const existingUser = users.find((user) => user.email === newUser.email);
+      if (existingUser) {
+        this.errorMessage = 'O email já está cadastrado.';
+        return;
+      }
+
+
+      this.http.post(this.apiUrl, newUser).subscribe({
+        next: (response) => {
+          console.log('Usuário cadastrado', response);
+          this.errorMessage = null;
+          this.registerForm.reset();
+          this.authService.login(); 
+          this.router.navigate(['/homeUser']);
+        },
+        error: (error) => {
+          console.error('Erro ao cadastrar usuário', error);
+          this.errorMessage = 'Erro ao cadastrar o usuário.';
+        },
+      });
     });
   }
 
