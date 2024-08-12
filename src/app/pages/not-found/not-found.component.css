@@ -126,6 +126,7 @@ main {
 @media screen and (max-width: 768px) {
   .balance-login-container {
     width: 80%;
+  
   }
 
   .balance-input {
@@ -135,7 +136,7 @@ main {
 
 @media screen and (max-width: 480px) {
   .balance-login-container {
-    width: 95%;
+    width: 70%;
   }
 
   .balance-input {

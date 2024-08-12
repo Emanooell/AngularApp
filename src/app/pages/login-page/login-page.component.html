@@ -1,5 +1,5 @@
-<div class="container">
-  <h2 class="title">Login</h2>
+<div class="balance-login-container">
+  <h2 class="balance-title">Login</h2>
   <div class="containerForm">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
       <div class="inputContainer">
@@ -25,7 +25,7 @@
             class="togglePassword"
             (click)="togglePasswordVisibility()"
           >
-            {{ passwordFieldType === "password" ? "Mostrar" : "Ocultar" }}
+            {{ passwordFieldType === 'password' ? 'Mostrar' : 'Ocultar' }}
           </button>
         </div>
         <div *ngIf="errorMessage" class="containerError">
