@@ -24,7 +24,7 @@ main {
   border: 2px solid #ddd; /* Borda semelhante à das outras telas */
   border-radius: 15px; /* Bordas arredondadas */
   background-color: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   font-family: Arial, sans-serif;
   text-align: center; /* Centraliza o conteúdo dentro do container */
 }

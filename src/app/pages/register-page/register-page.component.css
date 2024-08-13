@@ -14,7 +14,7 @@
   border: 2px solid #ddd; /* Borda semelhante à das outras telas */
   border-radius: 15px; /* Bordas arredondadas */
   background-color: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   font-family: Arial, sans-serif;
 }
 
@@ -66,6 +66,7 @@
 }
 
 .input {
+  font-size: 15px;
   padding: 12px 16px;
   border-radius: 8px;
   border: 2px solid #ccc;
@@ -74,7 +75,7 @@
   margin-bottom: 10px;
   background-color: #fafafa; /* Cor de fundo mais suave */
   transition: border-color 0.3s ease; /* Transição suave na mudança de borda */
-  
+
 }
 
 .input:focus {
