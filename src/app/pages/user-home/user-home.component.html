@@ -36,10 +36,9 @@
     <li *ngFor="let book of books; let i = index">
       {{ book.title }} por {{ book.author }} ({{ book.year }})
 
-        <button (click)="deleteBook(book.id, i)">
-          <img src="../../../assets/trash.svg" alt="Ícone de lixeira">
-        </button>
-
+      <button (click)="deleteBook(book.id, i)">
+        <img src="../../../assets/trash.svg" alt="Ícone de lixeira" />
+      </button>
     </li>
   </ul>
 </main>
