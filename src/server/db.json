@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "3656",
+      "email": "emailteste@gmail.com",
+      "password": "teste1"
+    },
+    {
+      "id": "b686",
+      "email": "emailteste2@gmail.com",
+      "password": "senhateste3"
+    }
+  ],
+  "books": [
+    {
+      "title": "livro teste 1",
+      "author": "lviro teste 2124141415151515151",
+      "year": 123131314141413,
+      "id": "1723761693547"
+    }
+  ]
+}

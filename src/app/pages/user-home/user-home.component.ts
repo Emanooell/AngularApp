@@ -111,7 +111,7 @@ export class UserHomeComponent implements OnInit {
       this.http.delete(`${this.apiUrl}/${id}`).subscribe({
         next: () => {
           this.books.splice(index, 1);
-          console.log(`livro com o id ${id} removido`);
+          console.log(`Livro com o id ${id} removido`);
         },
         error: (error) => {
           console.error('Erro ao remover o livro', error);
