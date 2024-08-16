@@ -8,21 +8,21 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 500px; /* Ajuste do tamanho para manter o layout mais compacto */
+  max-width: 500px;
   margin: 0 auto;
   padding: 40px;
-  border: 2px solid #ddd; /* Borda semelhante à das outras telas */
-  border-radius: 15px; /* Bordas arredondadas */
-  background-color: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: Arial, sans-serif;
 }
 
 .title {
   font-size: 24px;
   color: #333;
-  margin-bottom: 20px; /* Espaço abaixo do título */
-  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .containerForm {
@@ -73,19 +73,19 @@
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
-  background-color: #fafafa; /* Cor de fundo mais suave */
-  transition: border-color 0.3s ease; /* Transição suave na mudança de borda */
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
 
 }
 
 .input:focus {
-  border-color: #4caf50; /* Borda verde ao focar */
+  border-color: #4caf50;
   outline: none;
 }
 
 .togglePassword {
   position: absolute;
-  right: 10px; /* Espaçamento do lado direito */
+  right: 10px; 
   background: none;
   border: none;
   cursor: pointer;
@@ -119,6 +119,6 @@
 
 @media screen and (max-width: 480px) {
   .container {
-    width: 80%;
+    width: 75%;
   }
 }

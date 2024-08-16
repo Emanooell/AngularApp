@@ -19,20 +19,20 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 500px; /* Mantém a consistência com as outras telas */
+  max-width: 500px;
   padding: 40px;
-  border: 2px solid #ddd; /* Borda semelhante à das outras telas */
-  border-radius: 15px; /* Bordas arredondadas */
-  background-color: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: Arial, sans-serif;
-  text-align: center; /* Centraliza o conteúdo dentro do container */
+  text-align: center;
 }
 
 .title {
   font-size: 24px;
   color: #333;
-  margin-bottom: 20px; /* Espaço abaixo do título */
+  margin-bottom: 20px;
 }
 
 .containerButtons {
@@ -49,10 +49,10 @@ main {
   color: #fff;
   font-size: 16px;
   border: none;
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%; /* Botão ocupa toda a largura */
+  width: 100%; 
 }
 
 .button:hover {
