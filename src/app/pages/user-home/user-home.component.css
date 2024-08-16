@@ -131,7 +131,6 @@ img {
   height: 20px;
 }
 
-/* Regras para telas menores */
 @media (max-width: 600px) {
   .containerInput {
     margin-bottom: 15px;
@@ -152,9 +151,6 @@ img {
     padding: 10px 15px;
   }
 
-  li {
-    flex-direction: column;
-  }
 
   li button {
     width: 100%;

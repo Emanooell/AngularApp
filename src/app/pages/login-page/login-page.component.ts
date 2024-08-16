@@ -69,14 +69,13 @@ export class LoginPageComponent {
           user.password === credentials.password
       );
       if (user) {
-        console.log('Login efetuado com sucesso');
         this.errorMessage = null; // Limpa a mensagem de erro se o login for bem-sucedido
         this.loginForm.reset();
         this.authService.login(); // Autentica o usuário no AuthService
         this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
       } else {
         this.errorMessage = 'Dados inválidos.';
-      }  
+      }
     });
   }
 }

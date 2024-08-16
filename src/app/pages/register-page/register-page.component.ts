@@ -57,7 +57,6 @@ export class RegisterPageComponent {
       // Caso o email não exista, cadastra o usuário
       this.http.post(this.apiUrl, newUser).subscribe({
         next: (response) => {
-          console.log('Usuário cadastrado', response);
           this.errorMessage = null;
           this.registerForm.reset();
           this.authService.login(); // Chame o método login do AuthService para autenticar o usuário
