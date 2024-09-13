@@ -3,7 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service'; // Certifique-se de que o caminho está correto
+import { AuthService } from '../../services/auth.service'; 
 
 @Component({
   selector: 'app-register-page',
@@ -22,7 +22,7 @@ export class RegisterPageComponent {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService // Injete o AuthService
+    private authService: AuthService
   ) {
     this.registerForm = this.formBuilder.group({
       email: [''],
@@ -46,7 +46,7 @@ export class RegisterPageComponent {
 
     const newUser = this.registerForm.value;
 
-    // Verifica se o email já existe
+
     this.http.get<any[]>(this.apiUrl).subscribe((users) => {
       const existingUser = users.find((user) => user.email === newUser.email);
       if (existingUser) {
@@ -54,13 +54,13 @@ export class RegisterPageComponent {
         return;
       }
 
-      // Caso o email não exista, cadastra o usuário
+
       this.http.post(this.apiUrl, newUser).subscribe({
         next: (response) => {
           this.errorMessage = null;
           this.registerForm.reset();
-          this.authService.login(); // Chame o método login do AuthService para autenticar o usuário
-          this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
+          this.authService.login();
+          this.router.navigate(['/homeUser']);
         },
         error: (error) => {
           console.error('Erro ao cadastrar usuário', error);

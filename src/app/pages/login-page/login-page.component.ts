@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Importação do Router
-import { AuthService } from '../../services/auth.service'; // Certifique-se de que o caminho está correto
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,20 +16,20 @@ export class LoginPageComponent {
   private apiUrl = 'http://localhost:3000/users';
   loginForm: FormGroup;
   errorMessage: string | null = null;
-  passwordFieldType: string = 'password'; // Estado para controlar a visibilidade da senha
+  passwordFieldType: string = 'password';
 
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private router: Router, // Injete o Router aqui
-    private authService: AuthService // Injete o AuthService
+    private router: Router,
+    private authService: AuthService
   ) {
     this.loginForm = this.formBuilder.group({
       email: [''],
       password: [''],
     });
 
-    // Subscrição para limpar a mensagem de erro ao digitar
+
     this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
     });
@@ -47,17 +47,17 @@ export class LoginPageComponent {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !emailPattern.test(email) || !password) {
-      this.errorMessage = 'Dados inválidos.'; // Define uma mensagem de erro genérica
+      this.errorMessage = 'Dados inválidos.';
       return false;
     }
 
-    this.errorMessage = null; // Limpa a mensagem de erro se tudo estiver válido
+    this.errorMessage = null;
     return true;
   }
 
   onSubmit() {
     if (!this.validateForm()) {
-      return; // Mostra a mensagem de erro, se houver
+      return;
     }
 
     const credentials = this.loginForm.value;
@@ -69,10 +69,10 @@ export class LoginPageComponent {
           user.password === credentials.password
       );
       if (user) {
-        this.errorMessage = null; // Limpa a mensagem de erro se o login for bem-sucedido
+        this.errorMessage = null;
         this.loginForm.reset();
-        this.authService.login(); // Autentica o usuário no AuthService
-        this.router.navigate(['/homeUser']); // Redireciona para a rota homeUser
+        this.authService.login(); 
+        this.router.navigate(['/homeUser']);
       } else {
         this.errorMessage = 'Dados inválidos.';
       }

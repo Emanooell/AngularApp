@@ -15,7 +15,7 @@ interface Book {
   standalone: true,
   imports: [HttpClientModule, ReactiveFormsModule, CommonModule],
   templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css'], // Corrigido: styleUrls é um array
+  styleUrls: ['./user-home.component.css'],
 })
 export class UserHomeComponent implements OnInit {
   private apiUrl = 'http://localhost:3000/books';
@@ -34,7 +34,7 @@ export class UserHomeComponent implements OnInit {
       year: [''],
     });
 
-    // Monitorar mudanças individualmente para cada campo
+    
     this.bookForm.get('title')?.valueChanges.subscribe(() => {
       const control = this.bookForm.get('title');
       if (control && control.valid) {
@@ -114,7 +114,7 @@ export class UserHomeComponent implements OnInit {
 
         },
         error: (error) => {
-        
+
         },
       });
     }

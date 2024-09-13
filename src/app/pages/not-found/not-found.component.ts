@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common'; // Importar o serviço Location
+import { Location } from '@angular/common'; 
 
 @Component({
   selector: 'app-not-found',
   standalone: true,
   imports: [],
   templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css'], // Corrigido: styleUrls é um array
+  styleUrls: ['./not-found.component.css'],
 })
 export class NotFoundComponent {
-  constructor(private location: Location) {} // Injetar o serviço Location
+  constructor(private location: Location) {}
 
   goBack() {
-    this.location.back(); // Navegar para a rota anterior
+    this.location.back();
   }
 }
