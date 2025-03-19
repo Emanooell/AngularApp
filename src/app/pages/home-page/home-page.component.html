@@ -1,9 +1,16 @@
 <main>
   <div class="container">
-    <h2 class="title">Bem-vindo ao Clube do Livro</h2>
+    <h2 class="title">
+      <fa-icon [icon]="faBook"></fa-icon> Bem-vindo ao Clube do Livro
+    </h2>
+
     <div class="containerButtons">
-      <button class="button" (click)="navigateLogin()">Login</button>
-      <button class="button" (click)="navigateRegister()">Cadastro</button>
+      <button class="button" (click)="navigateLogin()">
+        <fa-icon [icon]="faSignInAlt"></fa-icon> Login
+      </button>
+      <button class="button" (click)="navigateRegister()">
+        <fa-icon [icon]="faUserPlus"></fa-icon> Cadastro
+      </button>
     </div>
   </div>
 </main>

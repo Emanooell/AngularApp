@@ -1,5 +1,6 @@
 <div class="container">
-  <h2 class="title">Login</h2>
+  <h2 class="title"><fa-icon [icon]="faSignInAlt"></fa-icon> Login</h2>
+
   <div class="containerForm">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
       <div class="inputContainer">
@@ -27,14 +28,18 @@
             class="togglePassword"
             (click)="togglePasswordVisibility()"
           >
-            {{ passwordFieldType === "password" ? "Mostrar" : "Ocultar" }}
+            <fa-icon
+              [icon]="passwordFieldType === 'password' ? faEye : faEyeSlash"
+            ></fa-icon>
           </button>
         </div>
         <div *ngIf="errorMessage" class="containerError">
           <p class="error">{{ errorMessage }}</p>
         </div>
       </div>
-      <button type="submit" class="button">Entrar</button>
+      <button type="submit" class="button">
+        <fa-icon [icon]="faSignInAlt"></fa-icon> Entrar
+      </button>
     </form>
   </div>
 </div>

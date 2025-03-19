@@ -3,12 +3,27 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service'; 
+import { AuthService } from '../../services/auth.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// Importando os ícones necessários
+import {
+  faUserPlus,
+  faEnvelope,
+  faLock,
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FontAwesomeModule, // Importando FontAwesomeModule
+  ],
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.css'],
 })
@@ -17,6 +32,13 @@ export class RegisterPageComponent {
   registerForm: FormGroup;
   errorMessage: string | null = null;
   passwordFieldType: string = 'password';
+
+  // Definindo os ícones
+  faUserPlus = faUserPlus; // Ícone de cadastro
+  faEnvelope = faEnvelope; // Ícone de e-mail
+  faLock = faLock; // Ícone de senha
+  faEye = faEye; // Ícone de mostrar senha
+  faEyeSlash = faEyeSlash; // Ícone de ocultar senha
 
   constructor(
     private http: HttpClient,
@@ -46,14 +68,12 @@ export class RegisterPageComponent {
 
     const newUser = this.registerForm.value;
 
-
     this.http.get<any[]>(this.apiUrl).subscribe((users) => {
       const existingUser = users.find((user) => user.email === newUser.email);
       if (existingUser) {
         this.errorMessage = 'O email já está cadastrado.';
         return;
       }
-
 
       this.http.post(this.apiUrl, newUser).subscribe({
         next: (response) => {

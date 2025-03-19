@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faSignInAlt,
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,7 +14,12 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
@@ -17,6 +28,12 @@ export class LoginPageComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
   passwordFieldType: string = 'password';
+
+  // Ícones FontAwesome
+  faSignInAlt = faSignInAlt;
+  
+  faEye = faEye; // Ícone de mostrar senha
+  faEyeSlash = faEyeSlash; // Ícone de ocultar senha
 
   constructor(
     private http: HttpClient,
@@ -28,7 +45,6 @@ export class LoginPageComponent {
       email: [''],
       password: [''],
     });
-
 
     this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = null;
@@ -43,7 +59,6 @@ export class LoginPageComponent {
   validateForm(): boolean {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
-
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !emailPattern.test(email) || !password) {
@@ -71,7 +86,7 @@ export class LoginPageComponent {
       if (user) {
         this.errorMessage = null;
         this.loginForm.reset();
-        this.authService.login(); 
+        this.authService.login();
         this.router.navigate(['/homeUser']);
       } else {
         this.errorMessage = 'Dados inválidos.';

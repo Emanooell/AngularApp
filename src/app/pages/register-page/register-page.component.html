@@ -1,7 +1,11 @@
 <div class="container">
-  <h2 class="title">Cadastro</h2>
+  <h2 class="title">
+    <fa-icon [icon]="faUserPlus"></fa-icon> Cadastro
+  </h2>
+
   <div class="containerForm">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+ 
       <div class="inputContainer">
         <input
           class="input"
@@ -12,6 +16,7 @@
           autocomplete="email"
         />
       </div>
+
       <div class="inputContainer">
         <div class="passwordInputWrapper">
           <input
@@ -27,14 +32,18 @@
             class="togglePassword"
             (click)="togglePasswordVisibility()"
           >
-            {{ passwordFieldType === "password" ? "Mostrar" : "Ocultar" }}
+            <fa-icon [icon]="passwordFieldType === 'password' ? faEye : faEyeSlash"></fa-icon>
           </button>
         </div>
-        <div *ngIf="errorMessage" class="containerError">
-          <p class="error">{{ errorMessage }}</p>
-        </div>
       </div>
-      <button type="submit" class="button">Cadastrar</button>
+
+      <div *ngIf="errorMessage" class="containerError">
+        <p class="error">{{ errorMessage }}</p>
+      </div>
+
+      <button type="submit" class="button">
+        <fa-icon [icon]="faUserPlus"></fa-icon> Cadastrar
+      </button>
     </form>
   </div>
 </div>
